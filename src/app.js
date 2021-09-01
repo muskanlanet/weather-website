@@ -6,6 +6,8 @@ const hbs = require("hbs");
 const geocode = require("./utilis/geocode");
 const forecast = require("./utilis/forecast");
 
+const port = process.env.PORT || 3000;
+
 const app = express();
 
 const pathDir = path.join(__dirname, "../static");
@@ -100,6 +102,6 @@ app.get("*", (req, res) => {
   });
 });
 
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log("server is up");
 });
