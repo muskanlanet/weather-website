@@ -6,7 +6,6 @@ const forecast = (latitude, longitude, callback) => {
     if (error) {
       callback("Unable to connect to weather service", undefined);
     } else if (body.message !== 0) {
-      
       callback(
         "Unable to find the desired location . Please Try another search",
         undefined
@@ -14,7 +13,7 @@ const forecast = (latitude, longitude, callback) => {
     } else {
       callback(
         undefined,
-        `${body.list[0].weather[0].description}  It is currently ${body.list[0].main.temp} degree out . There is ${body.list[1].clouds.all}% chance of rain`
+        `There is ${body.list[0].weather[0].description}. It is currently ${body.list[0].main.temp} degree out . Today the high temperature is ${body.list[0].main.temp_max} and low temperature is ${body.list[0].main.temp_min}. There is ${body.list[1].clouds.all}% chance of rain.`
       );
     }
   });
